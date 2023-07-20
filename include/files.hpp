@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -6,16 +7,22 @@ class file {
  public:
   std::string get_file_name();
 
-  void write_to_file(std::string text);
+  bool write_to_file(const std::string& text);
 
-  void delete_from_file(std::string text);
-
-  void delete_line_from_file(int line);
+  bool delete_line_from_file(const std::string& deleteline);
 
   std::string get_encrypted_file();
 
+  file(const std::string& file_name) {
+    std::fstream file(file_name);
+    file << "";
+    file.close();
+  }
+
  private:
   std::string file_name;
+
+  bool check_file_exists(const std::string& file);
 
   std::string password;
 };
