@@ -1,7 +1,7 @@
-#include "bank.hpp"
-
 #include <cstdlib>
 #include <random>
+
+#include "../include/bank.hpp"
 
 namespace bnk {
 int bank::get_capital() { return this->capital; }

@@ -14,6 +14,7 @@ class bank {
   bank(int capital) {
     this->f->write_to_file("Bank set up with capital of " +
                            std::to_string(this->get_capital()));
+    this->capital = capital;
   }
 
   int get_customers();

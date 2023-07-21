@@ -1,5 +1,8 @@
+CXX = clang++
+
+SRCS = $(wildcard src/*.cpp impl/*.cpp impl/*.hpp)
+
+CXXFLAGS = -std=c++17 
 
 all:
-  g++ src/main.cpp -o ./target/out
-  ./target/out
-        
+	$(CXX) $(CXXFLAGS) $(SRCS) -o target/out
