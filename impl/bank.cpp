@@ -36,7 +36,7 @@ bool combank::deposit(int amount, int id) {
   if (customers.find(id) == customers.end()) {
     return false;
   } else {
-    this->capital += amount;
+    this->customers[id] += amount;
     this->f->write_to_file("ID: " + std::to_string(id) + " added " +
                            std::to_string(amount) + " to their account");
     return true;
@@ -50,7 +50,7 @@ int combank::withdraw(int amount, int id) {
   } else {
     this->f->write_to_file("ID: " + std::to_string(id) + " removed " +
                            std::to_string(amount) + " from their account");
-    this->capital -= amount;
+    this->customers[id] -= amount;
     return amount;
   }
 }

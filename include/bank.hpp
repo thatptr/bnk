@@ -11,10 +11,10 @@ class bank {
  protected:
   int capital;
   std::unique_ptr<files::file> f = std::make_unique<files::file>("bank.txt");
-  std::map<int, int> customers;
   int customers_num;
 
  public:
+  std::map<int, int> customers;
   int get_capital();
 
   bank(int capital) {
@@ -29,9 +29,10 @@ class bank {
   int add_to_customers(std::string name, int capital);
 };
 
-class combank : private bank {
+class combank : public bank {
  public:
   bool deposit(int amount, int id);
   int withdraw(int amount, int id);
+  combank(int capital) : bank(capital) {}
 };
 }  // namespace bnk
