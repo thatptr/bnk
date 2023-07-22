@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <random>
+#include <string>
 
 #include "../include/bank.hpp"
 
@@ -23,6 +24,9 @@ int bank::add_to_customers(std::string name, int capital) {
       {rand_num, capital});  // use the random integer as a key when inserting a
                              // new customer
   ++this->customers_num;
+
+  this->f->write_to_file("Added customer with ID - " +
+                         std::to_string(rand_num));
 
   return rand_num;
 }

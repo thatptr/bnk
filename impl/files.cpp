@@ -18,7 +18,7 @@ bool file::check_file_exists(const std::string& file) {
 // Write to file
 bool file::write_to_file(const std::string& text) {
   if (this->check_file_exists(this->file_name)) {
-    std::fstream f;
+    std::ofstream f{this->file_name, std::ios::app};
     f << text << std::endl;
     f.close();
     return true;
@@ -43,4 +43,7 @@ bool file::delete_line_from_file(const std::string& deleteline) {
     return false;
   }
 }
+
+void file::create_file() { std::ofstream file{this->file_name}; }
+
 }  // namespace files

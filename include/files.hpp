@@ -13,11 +13,9 @@ class file {
 
   std::string get_encrypted_file();
 
-  file(const std::string& file_name) {
-    std::fstream file(file_name);
-    file << "";
-    file.close();
-  }
+  void create_file();
+
+  file(const std::string& file_name) { this->file_name = file_name; }
 
  private:
   std::string file_name;
