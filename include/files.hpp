@@ -4,6 +4,13 @@
 
 namespace files {
 class file {
+ private:
+  std::string file_name;
+
+  bool check_file_exists(const std::string& file);
+
+  std::string password;
+
  public:
   std::string get_file_name();
 
@@ -16,12 +23,5 @@ class file {
   void create_file();
 
   file(const std::string& file_name) { this->file_name = file_name; }
-
- private:
-  std::string file_name;
-
-  bool check_file_exists(const std::string& file);
-
-  std::string password;
 };
 }  // namespace files
