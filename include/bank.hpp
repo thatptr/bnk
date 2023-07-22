@@ -12,9 +12,9 @@ class bank {
   int capital;
   std::unique_ptr<files::file> f = std::make_unique<files::file>("bank.txt");
   int customers_num;
+  std::map<int, int> customers;
 
  public:
-  std::map<int, int> customers;
   int get_capital();
 
   bank(int capital) {
@@ -27,6 +27,8 @@ class bank {
   int get_customers();
 
   int add_to_customers(std::string name, int capital);
+
+  int get_customer_capital(int id);
 };
 
 class combank : public bank {

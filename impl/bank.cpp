@@ -55,4 +55,13 @@ int combank::withdraw(int amount, int id) {
   }
 }
 
+// Get customer's capital
+int bank::get_customer_capital(int id) {
+  if (customers.find(id) == customers.end()) {
+    return false;
+  } else {
+    return this->customers[id];
+  }
+}
+
 }  // namespace bnk
