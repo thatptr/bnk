@@ -8,7 +8,7 @@
 
 namespace bnk {
 class bank {
- private:
+ protected:
   int capital;
   std::unique_ptr<files::file> f = std::make_unique<files::file>("bank.txt");
   std::map<int, int> customers;
@@ -27,5 +27,11 @@ class bank {
   int get_customers();
 
   int add_to_customers(std::string name, int capital);
+};
+
+class combank : private bank {
+ public:
+  bool deposit(int amount, int id);
+  int withdraw(int amount, int id);
 };
 }  // namespace bnk

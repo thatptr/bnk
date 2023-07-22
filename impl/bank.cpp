@@ -30,4 +30,29 @@ int bank::add_to_customers(std::string name, int capital) {
 
   return rand_num;
 }
+
+// Deposit
+bool combank::deposit(int amount, int id) {
+  if (customers.find(id) == customers.end()) {
+    return false;
+  } else {
+    this->capital += amount;
+    this->f->write_to_file("ID: " + std::to_string(id) + " added " +
+                           std::to_string(amount) + " to their account");
+    return true;
+  }
+}
+
+// Withdraw
+int combank::withdraw(int amount, int id) {
+  if (customers.find(id) == customers.end()) {
+    return false;
+  } else {
+    this->f->write_to_file("ID: " + std::to_string(id) + " removed " +
+                           std::to_string(amount) + " from their account");
+    this->capital -= amount;
+    return amount;
+  }
+}
+
 }  // namespace bnk
