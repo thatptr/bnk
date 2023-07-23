@@ -42,7 +42,7 @@ int add_customer(combank& a) {
   int b = std::stoi(input());
 
   int c = a.add_to_customers("", b);
-  print("Created account with id of: " + std::to_string(c));
+  println("Created account with id of: " + std::to_string(c));
 
   return c;
 }
@@ -52,7 +52,7 @@ void remove_customer(combank& a) {
   int b = std::stoi(input().c_str());
 
   a.remove_customer(b);
-  print("Removed account with id of: " + std::to_string(b));
+  println("Removed account with id of: " + std::to_string(b));
 }
 
 }  // namespace bnk
