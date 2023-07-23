@@ -29,6 +29,8 @@ class bank {
   int add_to_customers(std::string name, int capital);
 
   int get_customer_capital(int id);
+
+  bool remove_customer(int id);
 };
 
 class combank : public bank {

@@ -1,8 +1,8 @@
+#include "../include/bank.hpp"
+
 #include <cstdlib>
 #include <random>
 #include <string>
-
-#include "../include/bank.hpp"
 
 namespace bnk {
 int bank::get_capital() { return this->capital; }
@@ -29,6 +29,17 @@ int bank::add_to_customers(std::string name, int capital) {
                          std::to_string(rand_num));
 
   return rand_num;
+}
+
+bool bank::remove_customer(int id) {
+  if (this->customers.find(id) == this->customers.end()) {
+    return false;
+  } else {
+    --this->customers_num;
+    this->customers.erase(id);
+    this->f->write_to_file("Removed customer with ID - " + std::to_string(id));
+    return true;
+  }
 }
 
 // Deposit
