@@ -45,5 +45,4 @@ bool file::delete_line_from_file(const std::string& deleteline) {
 }
 
 void file::create_file() { std::ofstream file{this->file_name}; }
-
 }  // namespace files

@@ -74,5 +74,4 @@ int bank::get_customer_capital(int id) {
     return this->customers[id];
   }
 }
-
 }  // namespace bnk
