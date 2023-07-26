@@ -4,41 +4,40 @@
 
 #include "../include/bank.hpp"
 
-template <typename T>
-static void println(const T& text) {
-  std::cout << text << std::endl;
-}
-
-template <typename T>
-static void print(const T& text) {
-  std::cout << text;
-}
-
+namespace gui {
 static std::string input() {
   std::string a;
   std::cin >> a;
   return a;
 }
 
-namespace bnk {
+template <typename T>
+void println(const T& text) {
+  std::cout << text << std::endl;
+}
+
+template <typename T>
+void print(const T& text) {
+  std::cout << text;
+}
 // Setup a bank
-combank setup_bank() {
+bnk::combank setup_bank() {
   print("Amount the bank should start with: ");
   int b = std::stoi(input().c_str());
 
-  combank out(b);
+  bnk::combank out(b);
 
   return out;
 }
 
 // Show bank info
-void bank_info(combank& a) {
+void bank_info(bnk::combank& a) {
   println("Capital: " + std::to_string(a.get_capital()));
   println("Customers: " + std::to_string(a.get_customers()));
 }
 
 // Add a customer
-int add_customer(combank& a) {
+int add_customer(bnk::combank& a) {
   print("Capital: ");
   int b = std::stoi(input());
 
@@ -48,7 +47,7 @@ int add_customer(combank& a) {
   return c;
 }
 // Remove a customer
-void remove_customer(combank& a) {
+void remove_customer(bnk::combank& a) {
   print("ID: ");
   int b = std::stoi(input().c_str());
 
