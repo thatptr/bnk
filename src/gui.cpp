@@ -6,6 +6,7 @@
 
 namespace gui {
 static std::string input() {
+  // Create a string and add input in it
   std::string a;
   std::cin >> a;
   return a;
@@ -67,19 +68,19 @@ int menu() {
 
   std::string prompt = "[bnk] >> ";
 
-  while(true){
+  while (true) {
     // Print prompt and wait for input
     print(prompt);
     std::string in = input();
 
     // Check if the input is valid
-    if(std::stoi(in) > 4 || std::stoi(in) < 0){
+    if (std::stoi(in) > 4 || std::stoi(in) < 0) {
       break;
       return false;
     }
 
     // If the help option (0) is pressed, print help
-    if(std::stoi(in) == 0){
+    if (std::stoi(in) == 0) {
       println(help);
     } else {
       // Else, just return the input that was pressed
@@ -88,4 +89,4 @@ int menu() {
     }
   }
 }
-}  // namespace bnk
+}  // namespace gui

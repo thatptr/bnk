@@ -3,6 +3,4 @@
 
 #include "gui.cpp"
 
-int main() {
-
-}
+int main() {}
