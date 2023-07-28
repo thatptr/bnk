@@ -31,46 +31,53 @@ int bank::add_to_customers(std::string name, int capital) {
   return rand_num;
 }
 
+// Remove a customer
 bool bank::remove_customer(int id) {
-  if (this->customers.find(id) == this->customers.end()) {
-    return false;
-  } else {
-    --this->customers_num;
-    this->customers.erase(id);
-    this->f->write_to_file("Removed customer with ID - " + std::to_string(id));
-    return true;
-  }
+  // Check if the we can find the customer, if not, just return false;
+  if (this->customers.find(id) == this->customers.end()) return false;
+
+  // If we can, decrease the customer num value and erase its id
+  --this->customers_num;
+  this->customers.erase(id);
+
+  // We now up the file and return tue
+  this->f->write_to_file("Removed customer with ID - " + std::to_string(id));
+  return true;
 }
 
 // Deposit
 bool combank::deposit(int amount, int id) {
-  if (customers.find(id) == customers.end()) {
-    return false;
-  } else {
-    this->customers[id] += amount;
-    this->f->write_to_file("ID: " + std::to_string(id) + " added " +
-                           std::to_string(amount) + " to their account");
-    return true;
-  }
+  // Check if the we can find the customer, if not, just return false;
+  if (customers.find(id) == customers.end()) return false;
+
+  // If true; add the amount in the account and update the file
+  this->customers[id] += amount;
+  this->f->write_to_file("ID: " + std::to_string(id) + " added " +
+                         std::to_string(amount) + " to their account");
+  return true;
 }
 
 // Withdraw
 int combank::withdraw(int amount, int id) {
-  if (customers.find(id) == customers.end()) {
-    return false;
-  } else {
-    this->f->write_to_file("ID: " + std::to_string(id) + " removed " +
-                           std::to_string(amount) + " from their account");
-    this->customers[id] -= amount;
-    return amount;
-  }
+  // Check if the we can find the customer, if not, just return false;
+  if (customers.find(id) == customers.end()) return false;
+
+  // If we can, remove the money in the account
+  this->f->write_to_file("ID: " + std::to_string(id) + " removed " +
+                         std::to_string(amount) + " from their account");
+  this->customers[id] -= amount;
+
+  // Return the amount left
+  return this->customers[id];
 }
 
 // Get customer's capital
 int bank::get_customer_capital(int id) {
+  // Check if the we can find the customer, if not, just return false;
   if (customers.find(id) == customers.end()) {
     return false;
   } else {
+    // If we can, return the customer's id
     return this->customers[id];
   }
 }

@@ -12,15 +12,18 @@ static std::string input() {
   return a;
 }
 
+// Helper function printing without a newline
 template <typename T>
 void println(const T& text) {
   std::cout << text << std::endl;
 }
 
+// Helper function printing without a newline
 template <typename T>
 void print(const T& text) {
   std::cout << text;
 }
+
 // Setup a bank
 bnk::combank setup_bank() {
   print("Amount the bank should start with: ");
@@ -54,39 +57,5 @@ void remove_customer(bnk::combank& a) {
 
   a.remove_customer(b);
   println("Removed account with id of: " + std::to_string(b));
-}
-
-// Main menu
-int menu() {
-  int opt;
-  std::string help =
-      "1. Setup bank\n"
-      "2. Show bank information\n"
-      "3. Add a customer\n"
-      "4. Remove a customer\n";
-  return 0;
-
-  std::string prompt = "[bnk] >> ";
-
-  while (true) {
-    // Print prompt and wait for input
-    print(prompt);
-    std::string in = input();
-
-    // Check if the input is valid
-    if (std::stoi(in) > 4 || std::stoi(in) < 0) {
-      break;
-      return false;
-    }
-
-    // If the help option (0) is pressed, print help
-    if (std::stoi(in) == 0) {
-      println(help);
-    } else {
-      // Else, just return the input that was pressed
-      break;
-      return std::stoi(in);
-    }
-  }
 }
 }  // namespace gui
