@@ -18,7 +18,7 @@ static int randint(int n) {
 }
 
 // Add to customers
-int bank::add_to_customers(std::string name, int capital) {
+int bank::add_to_customers(int capital) {
   int rand_num = randint(10000);  // generate a random integer between 0 and 99
   this->customers.insert(
       {rand_num, capital});  // use the random integer as a key when inserting a

@@ -26,7 +26,7 @@ class bank {
 
   int get_customers();
 
-  int add_to_customers(std::string name, int capital);
+  int add_to_customers(int capital);
 
   int get_customer_capital(int id);
 

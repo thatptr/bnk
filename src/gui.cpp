@@ -45,7 +45,7 @@ int add_customer(bnk::combank& a) {
   print("Capital: ");
   int b = std::stoi(input());
 
-  int c = a.add_to_customers("", b);
+  int c = a.add_to_customers(b);
   println("Created account with id of: " + std::to_string(c));
 
   return c;
