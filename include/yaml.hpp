@@ -12,12 +12,12 @@
 namespace bnk {
 
 class yaml {
- private:
+private:
   std::string name;
   YAML::Node file;
   std::ofstream outfile{this->name};
 
- protected:
+protected:
   yaml(std::string name) {
     // Setting the name
     this->name = name;
@@ -27,6 +27,9 @@ class yaml {
   }
 
   // Adding key values
-  void add_to_yaml(std::vector<std::string> arr);
+  void add(std::vector<std::string> arr);
+
+  // Removing key values
+  std::string *output(std::string key);
 };
-}  // namespace bnk
+} // namespace bnk

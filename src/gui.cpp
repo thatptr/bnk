@@ -13,16 +13,12 @@ static std::string input() {
 }
 
 // Helper function printing without a newline
-template <typename T>
-void println(const T& text) {
+template <typename T> void println(const T &text) {
   std::cout << text << std::endl;
 }
 
 // Helper function printing without a newline
-template <typename T>
-void print(const T& text) {
-  std::cout << text;
-}
+template <typename T> void print(const T &text) { std::cout << text; }
 
 // Setup a bank
 bnk::combank setup_bank() {
@@ -35,13 +31,13 @@ bnk::combank setup_bank() {
 }
 
 // Show bank info
-void bank_info(bnk::combank& a) {
+void bank_info(bnk::combank &a) {
   println("Capital: " + std::to_string(a.get_capital()));
   println("Customers: " + std::to_string(a.get_customers()));
 }
 
 // Add a customer
-int add_customer(bnk::combank& a) {
+int add_customer(bnk::combank &a) {
   print("Capital: ");
   int b = std::stoi(input());
 
@@ -50,12 +46,13 @@ int add_customer(bnk::combank& a) {
 
   return c;
 }
+
 // Remove a customer
-void remove_customer(bnk::combank& a) {
+void remove_customer(bnk::combank &a) {
   print("ID: ");
   int b = std::stoi(input().c_str());
 
   a.remove_customer(b);
   println("Removed account with id of: " + std::to_string(b));
 }
-}  // namespace gui
+} // namespace gui
