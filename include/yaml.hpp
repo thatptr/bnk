@@ -1,6 +1,3 @@
-#include <yaml-cpp/emitter.h>
-#include <yaml-cpp/node/node.h>
-#include <yaml-cpp/node/parse.h>
 #include <yaml-cpp/yaml.h>
 
 #include <fstream>
@@ -17,7 +14,7 @@ private:
   YAML::Node file;
   std::ofstream outfile{this->name};
 
-protected:
+public:
   yaml(std::string name) {
     // Setting the name
     this->name = name;
@@ -25,11 +22,16 @@ protected:
     // Setting up the file
     file = YAML::LoadFile(this->name);
   }
-
+  
+protected:
   // Adding key values
   void add(std::vector<std::string> arr);
 
   // Removing key values
   std::string *output(std::string key);
+
+  // Parsing yaml file
+  std::map<std::string, std::string>
+  parse_yaml_file(const std::string &filename);
 };
 } // namespace bnk
